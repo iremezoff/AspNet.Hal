@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0-*",
+  "description": "AspNet.Hal.Test Class Library",
+  "authors": [ "remez_000" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "net451": {
+      "dependencies": {
+        "ApprovalTests": "3.0.10",
+        "ApprovalUtilities": "3.0.10"
+      }
+    }
+  },
+  "dependencies": {
+    "AspNet.Hal": "1.0.0-*",
+    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+    "Microsoft.AspNet.TestHost": "1.0.0-rc1-final",
+    "Moq": "4.2.1510.2205",
+    "Newtonsoft.Json": "8.0.2",
+    "xunit": "2.1.0"
+  },
+  
+}

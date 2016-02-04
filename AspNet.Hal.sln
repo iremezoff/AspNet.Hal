@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0DE19AF3-64FE-4817-9C02-1BB87AF71243}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D68522A-198C-4497-9ADF-933C0BD13C1F}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+		src\AspNet.Hal\Readme.txt = src\AspNet.Hal\Readme.txt
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNet.Hal", "src\AspNet.Hal\AspNet.Hal.xproj", "{99F8A234-B687-4D7A-9061-C21E457A2F5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{98621307-3CB3-4EB3-8FAA-6C10CEAE0F68}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{88C35543-B2CD-4376-96DF-A395FCA204C1}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNet.Hal.Test", "tests\AspNet.Hal.Tests\AspNet.Hal.Test.xproj", "{7FFF2BC2-183E-4343-9409-656EED5496B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99F8A234-B687-4D7A-9061-C21E457A2F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F8A234-B687-4D7A-9061-C21E457A2F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F8A234-B687-4D7A-9061-C21E457A2F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F8A234-B687-4D7A-9061-C21E457A2F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FFF2BC2-183E-4343-9409-656EED5496B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FFF2BC2-183E-4343-9409-656EED5496B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FFF2BC2-183E-4343-9409-656EED5496B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FFF2BC2-183E-4343-9409-656EED5496B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{99F8A234-B687-4D7A-9061-C21E457A2F5F} = {0DE19AF3-64FE-4817-9C02-1BB87AF71243}
+		{7FFF2BC2-183E-4343-9409-656EED5496B6} = {98621307-3CB3-4EB3-8FAA-6C10CEAE0F68}
+	EndGlobalSection
+EndGlobal

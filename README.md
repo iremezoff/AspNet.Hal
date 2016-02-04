@@ -1,5 +1,10 @@
-WebApi.Hal
+AspNet.Hal
 ==========
+
+It's fork of https://github.com/JakeGinnivan/WebApi.Hal. The fork has been created to run for ASP.NET Core (ASP.NET 5).
+Unfortunately, xUnit isn't supported on DNX and tests cannot be run in ReSharper. VS TestExplorer doesn't work too.
+When ReSharper 10.1 releases unit tests will be restored. See the issue: https://github.com/xunit/resharper-xunit/issues/38.
+Also XmlFormatter was excluded because it needs separated package for XML serialization. Nevertheless, JSON satisfies my needs.
 
 Adds support for the Hal Media Type (and Hypermedia) to Asp.net Web Api
 
