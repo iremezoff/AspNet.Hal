@@ -48,7 +48,7 @@
             /// <summary>
             /// /beers?searchTerm={searchTerm}&amp;page={page}
             /// </summary>
-            public static Link SearchBeers { get { return new Link("page", "~/beers{?searchTerm,page}"); } }
+            public static Link SearchBeers { get { return new Link("page", "~/beers/search{?searchTerm,page}"); } }
 
             /// <summary>
             /// /beers/{id}

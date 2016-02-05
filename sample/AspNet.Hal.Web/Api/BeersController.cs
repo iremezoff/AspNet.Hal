@@ -22,7 +22,7 @@ namespace AspNet.Hal.Web.Api
             _repository2 = repository2;
         }
 
-        [HttpGet]
+        //[HttpGet]
         // GET beers
         public BeerListRepresentation Get(int page = 1)
         {
@@ -33,25 +33,25 @@ namespace AspNet.Hal.Web.Api
             return resourceList;
         }
 
-        //[HttpGet("{id}/?searchTerm={searchTerm}")]
-        //public BeerListRepresentation Search(string searchTerm, int page = 1)
-        //{
-        //    var beers = _repository2.Find(new GetBeersQuery(b => b.Name.Contains(searchTerm)), page, PageSize);
+        [HttpGet("Search")]
+        public BeerListRepresentation Search(string searchTerm, int page = 1)
+        {
+            var beers = _repository2.Find(new GetBeersQuery(b => b.Name.Contains(searchTerm)), page, PageSize);
 
-        //    // snap page back to actual page found
-        //    if (page > beers.TotalPages) page = beers.TotalPages;
+            // snap page back to actual page found
+            if (page > beers.TotalPages) page = beers.TotalPages;
 
-        //    //var link = LinkTemplates.Beers.SearchBeers.CreateLink(new { searchTerm, page });
-        //    var beersResource = new BeerListRepresentation(beers.ToList(), beers.TotalResults, beers.TotalPages, page,
-        //                                                   LinkTemplates.Beers.SearchBeers,
-        //                                                   new { searchTerm })
-        //    {
-        //        Page = page,
-        //        TotalResults = beers.TotalResults
-        //    };
+            //var link = LinkTemplates.Beers.SearchBeers.CreateLink(new { searchTerm, page });
+            var beersResource = new BeerListRepresentation(beers.ToList(), beers.TotalResults, beers.TotalPages, page,
+                                                           LinkTemplates.Beers.SearchBeers,
+                                                           new { searchTerm })
+            {
+                Page = page,
+                TotalResults = beers.TotalResults
+            };
 
-        //    return beersResource;
-        //}
+            return beersResource;
+        }
 
         [HttpPost]
         // POST beers
