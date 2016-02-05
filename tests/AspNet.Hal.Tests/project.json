@@ -6,7 +6,7 @@
   "projectUrl": "",
   "licenseUrl": "",
   "frameworks": {
-    "net451": {
+    "dnx451": {
       "dependencies": {
         "ApprovalTests": "3.0.10",
         "ApprovalUtilities": "3.0.10"
@@ -20,6 +20,6 @@
     "Moq": "4.2.1510.2205",
     "Newtonsoft.Json": "8.0.2",
     "xunit": "2.1.0"
-  },
+  }
   
 }

@@ -47,7 +47,7 @@ namespace AspNet.Hal.JsonConverters
                 {
                     case "href":
                         writer.WritePropertyName("href");
-                        writer.WriteValue(link.Href);
+                        writer.WriteValue(link.Href.Replace("~/", "/"));
                         break;
                     case "rel":
                         // do nothing ...

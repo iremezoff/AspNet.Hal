@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace WebApi.Hal.Web.Data
+namespace AspNet.Hal.Web.Data
 {
     public interface IQuery<out TResult>
     {

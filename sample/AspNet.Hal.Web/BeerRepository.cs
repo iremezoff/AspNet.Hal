@@ -1,10 +1,13 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using WebApi.Hal.Web.Data;
+using System.Linq.Expressions;
+using AspNet.Hal.Web.Data;
+using AspNet.Hal.Web.Models;
 
-namespace WebApi.Hal.Web
+namespace AspNet.Hal.Web
 {
-    public class BeerRepository : IRepository
+    public class BeerRepository<TBeer> : IRepository<TBeer> where TBeer : class
     {
         readonly IBeerDbContext beerDbContext;
 
@@ -13,37 +16,45 @@ namespace WebApi.Hal.Web
             this.beerDbContext = beerDbContext;
         }
 
-        public TEntity Get<TEntity>(object id) where TEntity : class
+        public TBeer Get(object id)
         {
-            return beerDbContext.Set<TEntity>().Find(id);
+            // I know, this is dirty kludge but there is no support for Find method in EF7. So I don't want to introduce interface into original "domain"
+            ParameterExpression param = Expression.Parameter(typeof(TBeer));
+            Expression<Func<TBeer, bool>> findEmulationExpr =
+                Expression.Lambda<Func<TBeer, bool>>(
+                    Expression.Equal(Expression.Property(param, typeof(TBeer).GetProperty("Id")),
+                        Expression.Constant(id)), param);
+
+            return beerDbContext.Set<TBeer>().SingleOrDefault(findEmulationExpr);
         }
 
-        public IEnumerable<TEntity> FindAll<TEntity>() where TEntity : class
+        public IEnumerable<TBeer> FindAll()
         {
-            return beerDbContext.Set<TEntity>();
+            return beerDbContext.Set<TBeer>();
         }
 
-        public IEnumerable<TEntity> Find<TEntity>(IQuery<TEntity> query) where TEntity : class
+        public IEnumerable<TBeer> Find(IQuery<TBeer> query)
         {
             return query.Execute(beerDbContext);
         }
 
-        public PagedResult<TEntity> Find<TEntity>(IPagedQuery<TEntity> query, int pageNumber, int itemsPerPage) where TEntity : class
+        public PagedResult<TBeer> Find(IPagedQuery<TBeer> query, int pageNumber, int itemsPerPage)
         {
-            return query.Execute(beerDbContext, (pageNumber - 1)*itemsPerPage, itemsPerPage);
+            return query.Execute(beerDbContext, (pageNumber - 1) * itemsPerPage, itemsPerPage);
         }
 
-        public TEntity FindFirst<TEntity>(IQuery<TEntity> query) where TEntity : class
+        public TBeer FindFirst(IQuery<TBeer> query)
         {
             return query.Execute(beerDbContext).First();
         }
 
-        public TEntity FindFirstOrDefault<TEntity>(IQuery<TEntity> query) where TEntity : class
+        public TBeer FindFirstOrDefault(IQuery<TBeer> query)
         {
             return query.Execute(beerDbContext).FirstOrDefault();
         }
 
-        public TEntity FindFirstOrDefault<TEntity>(IPagedQuery<TEntity> query) where TEntity : class
+
+        public TBeer FindFirstOrDefault(IPagedQuery<TBeer> query)
         {
             return query.Execute(beerDbContext, 0, 1).FirstOrDefault();
         }
@@ -53,15 +64,15 @@ namespace WebApi.Hal.Web
             command.Execute(beerDbContext);
         }
 
-        public void Add<TEntity>(TEntity entity) where TEntity : class
+        public void Add(TBeer entity)
         {
-            beerDbContext.Set<TEntity>().Add(entity);
+            beerDbContext.Set<TBeer>().Add(entity);
             beerDbContext.SaveChanges();
         }
 
-        public void Remove<TEntity>(TEntity entity) where TEntity : class
+        public void Remove(TBeer entity)
         {
-            beerDbContext.Set<TEntity>().Remove(entity);
+            beerDbContext.Set<TBeer>().Remove(entity);
             beerDbContext.SaveChanges();
         }
     }

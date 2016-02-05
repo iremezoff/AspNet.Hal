@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WebApi.Hal.Web.Api.Resources
+namespace AspNet.Hal.Web.Api.Resources
 {
     public class BeerListRepresentation : PagedRepresentationList<BeerRepresentation>
     {

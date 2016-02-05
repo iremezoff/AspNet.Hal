@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace WebApi.Hal.Web.Data
+namespace AspNet.Hal.Web.Data
 {
     public class PagedResult<T> : IEnumerable<T>
     {

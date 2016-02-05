@@ -1,4 +1,4 @@
-﻿namespace WebApi.Hal.Web
+﻿namespace AspNet.Hal.Web
 {
     public static class LinkTemplates
     {

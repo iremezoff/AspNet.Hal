@@ -1,16 +1,17 @@
 ﻿using System.Linq;
-using System.Web.Http;
-using WebApi.Hal.Web.Api.Resources;
-using WebApi.Hal.Web.Data;
-using WebApi.Hal.Web.Data.Queries;
+using AspNet.Hal.Web.Api.Resources;
+using AspNet.Hal.Web.Data;
+using AspNet.Hal.Web.Data.Queries;
+using Microsoft.AspNet.Mvc;
 
-namespace WebApi.Hal.Web.Api
+namespace AspNet.Hal.Web.Api
 {
-    public class BeersFromStyleController : ApiController
+    [Route("styles/{id}/beers")]
+    public class BeersFromStyleController : Controller
     {
-        readonly IRepository repository;
+        readonly IRepository<BeerRepresentation> repository;
 
-        public BeersFromStyleController(IRepository repository)
+        public BeersFromStyleController(IRepository<BeerRepresentation> repository)
         {
             this.repository = repository;
         }
@@ -20,7 +21,7 @@ namespace WebApi.Hal.Web.Api
             var beers = repository.Find(new GetBeersQuery(b => b.Style.Id == id), page, BeersController.PageSize);
             var resourceList = new BeerListRepresentation(
                 beers.ToList(), beers.TotalResults, beers.TotalPages, page,
-                LinkTemplates.BeerStyles.AssociatedBeers, new {id});
+                LinkTemplates.BeerStyles.AssociatedBeers, new { id });
             return resourceList;
         }
     }

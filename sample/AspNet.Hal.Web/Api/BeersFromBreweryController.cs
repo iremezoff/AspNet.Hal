@@ -1,20 +1,22 @@
 ﻿using System.Linq;
-using System.Web.Http;
-using WebApi.Hal.Web.Api.Resources;
-using WebApi.Hal.Web.Data;
-using WebApi.Hal.Web.Data.Queries;
+using AspNet.Hal.Web.Api.Resources;
+using AspNet.Hal.Web.Data;
+using AspNet.Hal.Web.Data.Queries;
+using Microsoft.AspNet.Mvc;
 
-namespace WebApi.Hal.Web.Api
+namespace AspNet.Hal.Web.Api
 {
-    public class BeersFromBreweryController : ApiController
+    [Route("breweries/{id}/beers")]
+    public class BeersFromBreweryController : Controller
     {
-        readonly IRepository repository;
+        readonly IRepository<BeerRepresentation> repository;
 
-        public BeersFromBreweryController(IRepository repository)
+        public BeersFromBreweryController(IRepository<BeerRepresentation> repository)
         {
             this.repository = repository;
         }
 
+        //[HttpGet("{id}")]
         public BeerListRepresentation Get(int id, int page = 1)
         {
             var beers = repository.Find(new GetBeersQuery(b => b.Brewery.Id == id), page, BeersController.PageSize);

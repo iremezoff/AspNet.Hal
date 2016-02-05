@@ -1,4 +1,4 @@
-﻿namespace WebApi.Hal.Web.Models
+﻿namespace AspNet.Hal.Web.Models
 {
     public class Review
     {

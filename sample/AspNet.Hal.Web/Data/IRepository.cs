@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 
-namespace WebApi.Hal.Web.Data
+namespace AspNet.Hal.Web.Data
 {
-    public interface IRepository
+    public interface IRepository<TEntity> where TEntity : class
     {
-        TEntity Get<TEntity>(object id) where TEntity : class;
-        IEnumerable<TEntity> FindAll<TEntity>() where TEntity : class;
-        IEnumerable<TEntity> Find<TEntity>(IQuery<TEntity> query) where TEntity : class;
-        PagedResult<TEntity> Find<TEntity>(IPagedQuery<TEntity> query, int pageNumber, int itemsPerPage) where TEntity : class;
-        TEntity FindFirst<TEntity>(IQuery<TEntity> query) where TEntity : class;
-        TEntity FindFirstOrDefault<TEntity>(IQuery<TEntity> query) where TEntity : class;
-        TEntity FindFirstOrDefault<TEntity>(IPagedQuery<TEntity> query) where TEntity : class;
+        TEntity Get(object id);
+        IEnumerable<TEntity> FindAll();
+        IEnumerable<TEntity> Find(IQuery<TEntity> query);
+        PagedResult<TEntity> Find(IPagedQuery<TEntity> query, int pageNumber, int itemsPerPage);
+        TEntity FindFirst(IQuery<TEntity> query);
+        TEntity FindFirstOrDefault(IQuery<TEntity> query);
+        TEntity FindFirstOrDefault(IPagedQuery<TEntity> query);
         void Execute(ICommand command);
-        void Add<TEntity>(TEntity entity) where TEntity : class;
-        void Remove<TEntity>(TEntity entity) where TEntity : class;
+        void Add(TEntity entity);
+        void Remove(TEntity entity);
     }
 }

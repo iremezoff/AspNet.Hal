@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace WebApi.Hal.Web.Api.Resources
+namespace AspNet.Hal.Web.Api.Resources
 {
     public abstract class PagedRepresentationList<TRepresentation> : SimpleListRepresentation<TRepresentation> where TRepresentation : Representation
     {

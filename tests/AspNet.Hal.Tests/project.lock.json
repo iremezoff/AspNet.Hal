@@ -2,7 +2,7 @@
   "locked": false,
   "version": 2,
   "targets": {
-    ".NETFramework,Version=v4.5.1": {
+    "DNX,Version=v4.5.1": {
       "ApprovalTests/3.0.10": {
         "type": "package",
         "dependencies": {
@@ -28,7 +28,7 @@
       },
       "AspNet.Hal/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
@@ -232,13 +232,14 @@
           "Microsoft.CSharp",
           "mscorlib",
           "System",
-          "System.Core"
+          "System.Core",
+          "System.Runtime"
         ],
         "compile": {
-          "lib/net451/Microsoft.AspNet.Hosting.dll": {}
+          "lib/dnx451/Microsoft.AspNet.Hosting.dll": {}
         },
         "runtime": {
-          "lib/net451/Microsoft.AspNet.Hosting.dll": {}
+          "lib/dnx451/Microsoft.AspNet.Hosting.dll": {}
         }
       },
       "Microsoft.AspNet.Hosting.Abstractions/1.0.0-rc1-final": {
@@ -1543,14 +1544,14 @@
           "xunit.extensibility.core": "[2.1.0]"
         },
         "compile": {
-          "lib/net45/xunit.execution.desktop.dll": {}
+          "lib/dnx451/xunit.execution.dotnet.dll": {}
         },
         "runtime": {
-          "lib/net45/xunit.execution.desktop.dll": {}
+          "lib/dnx451/xunit.execution.dotnet.dll": {}
         }
       }
     },
-    ".NETFramework,Version=v4.5.1/win7-x86": {
+    "DNX,Version=v4.5.1/win7-x86": {
       "ApprovalTests/3.0.10": {
         "type": "package",
         "dependencies": {
@@ -1576,7 +1577,7 @@
       },
       "AspNet.Hal/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
@@ -1780,13 +1781,14 @@
           "Microsoft.CSharp",
           "mscorlib",
           "System",
-          "System.Core"
+          "System.Core",
+          "System.Runtime"
         ],
         "compile": {
-          "lib/net451/Microsoft.AspNet.Hosting.dll": {}
+          "lib/dnx451/Microsoft.AspNet.Hosting.dll": {}
         },
         "runtime": {
-          "lib/net451/Microsoft.AspNet.Hosting.dll": {}
+          "lib/dnx451/Microsoft.AspNet.Hosting.dll": {}
         }
       },
       "Microsoft.AspNet.Hosting.Abstractions/1.0.0-rc1-final": {
@@ -3091,14 +3093,14 @@
           "xunit.extensibility.core": "[2.1.0]"
         },
         "compile": {
-          "lib/net45/xunit.execution.desktop.dll": {}
+          "lib/dnx451/xunit.execution.dotnet.dll": {}
         },
         "runtime": {
-          "lib/net45/xunit.execution.desktop.dll": {}
+          "lib/dnx451/xunit.execution.dotnet.dll": {}
         }
       }
     },
-    ".NETFramework,Version=v4.5.1/win7-x64": {
+    "DNX,Version=v4.5.1/win7-x64": {
       "ApprovalTests/3.0.10": {
         "type": "package",
         "dependencies": {
@@ -3124,7 +3126,7 @@
       },
       "AspNet.Hal/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
           "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
@@ -3328,13 +3330,14 @@
           "Microsoft.CSharp",
           "mscorlib",
           "System",
-          "System.Core"
+          "System.Core",
+          "System.Runtime"
         ],
         "compile": {
-          "lib/net451/Microsoft.AspNet.Hosting.dll": {}
+          "lib/dnx451/Microsoft.AspNet.Hosting.dll": {}
         },
         "runtime": {
-          "lib/net451/Microsoft.AspNet.Hosting.dll": {}
+          "lib/dnx451/Microsoft.AspNet.Hosting.dll": {}
         }
       },
       "Microsoft.AspNet.Hosting.Abstractions/1.0.0-rc1-final": {
@@ -4639,10 +4642,10 @@
           "xunit.extensibility.core": "[2.1.0]"
         },
         "compile": {
-          "lib/net45/xunit.execution.desktop.dll": {}
+          "lib/dnx451/xunit.execution.dotnet.dll": {}
         },
         "runtime": {
-          "lib/net45/xunit.execution.desktop.dll": {}
+          "lib/dnx451/xunit.execution.dotnet.dll": {}
         }
       }
     }
@@ -6551,7 +6554,7 @@
       "Newtonsoft.Json >= 8.0.2",
       "xunit >= 2.1.0"
     ],
-    ".NETFramework,Version=v4.5.1": [
+    "DNX,Version=v4.5.1": [
       "ApprovalTests >= 3.0.10",
       "ApprovalUtilities >= 3.0.10"
     ]

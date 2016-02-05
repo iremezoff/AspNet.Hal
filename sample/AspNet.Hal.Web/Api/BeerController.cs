@@ -1,11 +1,13 @@
-﻿using System.Web.Http;
-using System.Linq;
-using WebApi.Hal.Web.Api.Resources;
-using WebApi.Hal.Web.Data;
+﻿using System.Linq;
+using AspNet.Hal.Web.Api.Resources;
+using AspNet.Hal.Web.Data;
+using Microsoft.AspNet.Mvc;
+using Microsoft.Data.Entity;
 
-namespace WebApi.Hal.Web.Api
+namespace AspNet.Hal.Web.Api
 {
-    public class BeerController : ApiController
+    [Route("[controller]/{id}")]
+    public class BeerController : Controller
     {
         readonly IBeerDbContext beerDbContext;
 
@@ -14,10 +16,11 @@ namespace WebApi.Hal.Web.Api
             this.beerDbContext = beerDbContext;
         }
 
+        [HttpGet]
         // GET beers/5
         public BeerRepresentation Get(int id)
         {
-            var beer = beerDbContext.Beers.Include("Brewery").Include("Style").Single(br => br.Id == id); // lazy loading isn't on for this query; force loading
+            var beer = beerDbContext.Beers.Include(b => b.Brewery).Include(b => b.Style).Single(br => br.Id == id); // lazy loading isn't on for this query; force loading
 
             return new BeerRepresentation
             {
@@ -31,11 +34,13 @@ namespace WebApi.Hal.Web.Api
             };
         }
 
+        [HttpPut]
         // PUT beers/5
         public void Put(int id, string value)
         {
         }
 
+        [HttpDelete]
         // DELETE beers/5
         public void Delete(int id)
         {

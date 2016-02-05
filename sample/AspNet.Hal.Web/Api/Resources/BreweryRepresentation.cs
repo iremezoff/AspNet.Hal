@@ -1,4 +1,4 @@
-namespace WebApi.Hal.Web.Api.Resources
+namespace AspNet.Hal.Web.Api.Resources
 {
     public class BreweryRepresentation : Representation
     {

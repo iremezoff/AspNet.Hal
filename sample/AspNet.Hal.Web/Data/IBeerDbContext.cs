@@ -1,7 +1,7 @@
-using System.Data.Entity;
-using WebApi.Hal.Web.Models;
+using AspNet.Hal.Web.Models;
+using Microsoft.Data.Entity;
 
-namespace WebApi.Hal.Web.Data
+namespace AspNet.Hal.Web.Data
 {
     public interface IBeerDbContext
     {
